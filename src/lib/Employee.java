@@ -55,27 +55,25 @@ public class Employee {
 	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
 	 */
 
-	 public void setMonthlySalary(int grade) {  
-		monthlySalary = calculateMonthlySalary(grade);
-   }
-   
-   private int calculateMonthlySalary(int grade) {
-		int salary;
+	public void setMonthlySalary(int grade) {
 		if (grade == 1) {
-			salary = 3000000;
+			monthlySalary = 3000000;
+			if (isForeigner) {
+				monthlySalary = (int) (monthlySalary * 1.5);
+			}
 		} else if (grade == 2) {
-			salary = 5000000;
+			monthlySalary = 5000000;
+			if (isForeigner) {
+				monthlySalary = (int) (monthlySalary * 1.5);
+			}
 		} else if (grade == 3) {
-			salary = 7000000;
-		} else {
-			salary = 0; //handle default case
+			monthlySalary = 7000000;
+			if (isForeigner) {
+				monthlySalary = (int) (monthlySalary * 1.5);
+			}
 		}
-		if (isForeigner) {
-			salary = (int) (salary * 1.5);
-		}
-		return salary;
-   }
-   
+		
+	}
 
 	public void setAnnualDeductible(int deductible) {
 		this.annualDeductible = deductible;
